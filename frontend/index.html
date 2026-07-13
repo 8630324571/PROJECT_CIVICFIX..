@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CivicFix — Report. Track. Resolve.</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="hero">
+  <div class="brand" style="font-size:20px; margin-bottom:24px;">Civic<span>Fix</span></div>
+  <h1>Report civic issues. <span>Get them fixed.</span></h1>
+  <p>Potholes, broken streetlights, garbage pileups — report it once, and CivicFix routes it to the right department automatically.</p>
+</div>
+
+<div class="container" style="max-width:420px;">
+  <div class="card auth-box" style="margin-top:-80px; position:relative; z-index:2;">
+    <div id="loginForm">
+      <h2>Welcome back</h2>
+      <p style="color:var(--text-muted); font-size:14px; margin-top:0;">Log in to report or track issues.</p>
+      <div class="error-msg" id="loginError"></div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" id="loginEmail" placeholder="you@example.com">
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" id="loginPassword" placeholder="••••••••">
+      </div>
+      <button class="btn btn-primary btn-block" onclick="handleLogin()">Log in</button>
+      <div class="switch">No account? <a href="#" onclick="toggleForm(); return false;">Register here</a></div>
+    </div>
+
+    <div id="registerForm" style="display:none;">
+      <h2>Create an account</h2>
+      <p style="color:var(--text-muted); font-size:14px; margin-top:0;">Join CivicFix as a citizen or admin (demo mode).</p>
+      <div class="error-msg" id="registerError"></div>
+      <div class="success-msg" id="registerSuccess"></div>
+      <div class="form-group">
+        <label>Full Name</label>
+        <input type="text" id="regName" placeholder="Jane Doe">
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" id="regEmail" placeholder="you@example.com">
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" id="regPassword" placeholder="At least 6 characters">
+      </div>
+      <div class="form-group">
+        <label>Account Type</label>
+        <select id="regRole" onchange="toggleAdminFields()">
+          <option value="citizen">Citizen</option>
+          <option value="admin">Admin (demo)</option>
+        </select>
+      </div>
+      <div id="adminFields" style="display:none;">
+        <div class="form-group">
+          <label>Employee ID</label>
+          <input type="text" id="regEmployeeId" placeholder="e.g. MC-2024-0187">
+        </div>
+        <div class="form-group">
+          <label>Designation (government post)</label>
+          <input type="text" id="regDesignation" placeholder="e.g. Sanitation Officer, Ward 4">
+        </div>
+        <div class="form-group">
+          <label>Live photo (required for verification)</label>
+          <div id="camWrap">
+            <video id="camPreview" autoplay playsinline style="width:100%; border-radius:6px; background:#000; display:block;"></video>
+            <canvas id="camCanvas" style="display:none;"></canvas>
+            <img id="capturedPreview" style="width:100%; border-radius:6px; display:none;">
+            <p class="error-msg" id="camError"></p>
+            <div style="display:flex; gap:8px; margin-top:8px;">
+              <button type="button" class="btn btn-primary" id="captureBtn" onclick="capturePhoto()">Capture Photo</button>
+              <button type="button" class="btn" id="retakeBtn" onclick="retakePhoto()" style="display:none;">Retake</button>
+            </div>
+          </div>
+          <p style="font-size:12px; color:var(--text-muted); margin-top:6px;">
+            Take a live photo using your camera right now — uploading an existing picture is not allowed.
+            This confirms a real person is registering, not a bot or someone else's stolen details.
+          </p>
+        </div>
+        <p style="font-size:12px; color:var(--text-muted); margin-top:-8px;">
+          Your ID, designation and photo will be shown publicly on every complaint you update, for accountability.
+        </p>
+      </div>
+      <button class="btn btn-primary btn-block" onclick="handleRegister()">Create account</button>
+      <div class="switch">Already have an account? <a href="#" onclick="toggleForm(); return false;">Log in</a></div>
+    </div>
+  </div>
+</div>
+
+<footer>CivicFix — a civic-tech demo project · built with PHP, MySQL, Python &amp; JS</footer>
+
+<script src="js/auth.js"></script>
+</body>
+</html>

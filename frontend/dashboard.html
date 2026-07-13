@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Complaints — CivicFix</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="navbar">
+  <div class="brand">Civic<span>Fix</span></div>
+  <nav>
+    <a href="dashboard.html">My Complaints</a>
+    <a href="submit.html">Report Issue</a>
+    <a href="#" onclick="logout(); return false;">Log out</a>
+  </nav>
+</div>
+
+<div class="container">
+  <h2 id="welcomeMsg" style="margin-top:0;">My Complaints</h2>
+
+  <div id="complaintsList"></div>
+</div>
+
+<footer>CivicFix — a civic-tech demo project</footer>
+
+<script src="js/auth-guard.js"></script>
+<script src="js/dashboard.js"></script>
+</body>
+</html>

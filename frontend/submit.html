@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Report an Issue — CivicFix</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body>
+
+<div class="navbar">
+  <div class="brand">Civic<span>Fix</span></div>
+  <nav>
+    <a href="dashboard.html">My Complaints</a>
+    <a href="submit.html">Report Issue</a>
+    <a href="#" onclick="logout(); return false;">Log out</a>
+  </nav>
+</div>
+
+<div class="container" style="max-width:640px;">
+  <div class="card">
+    <h2 style="margin-top:0;">Report a civic issue</h2>
+    <p style="color:var(--text-muted); font-size:14px;">Describe the problem, pick the department it belongs to, and drop a pin on the map.</p>
+
+    <div class="error-msg" id="submitError"></div>
+    <div class="success-msg" id="submitSuccess"></div>
+
+    <div class="form-group">
+      <label>Title</label>
+      <input type="text" id="title" placeholder="e.g. Large pothole outside city park">
+    </div>
+
+    <div class="form-group">
+      <label>Description</label>
+      <textarea id="description" rows="4" placeholder="Give as much detail as possible: exact location, size, how long it's been there..."></textarea>
+    </div>
+
+    <div class="form-group">
+      <label>Category</label>
+      <select id="category">
+        <option value="Roads">Roads</option>
+        <option value="Sanitation">Sanitation</option>
+        <option value="Electricity">Electricity</option>
+        <option value="Water">Water</option>
+        <option value="Other">Other</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Photo (optional)</label>
+      <input type="file" id="photo" accept="image/*">
+    </div>
+
+    <div class="form-group">
+      <label>Location — click on the map to drop a pin</label>
+      <div id="map"></div>
+      <p style="font-size:13px; color:var(--text-muted); margin-top:6px;" id="coordsDisplay">No location selected yet.</p>
+    </div>
+
+    <button class="btn btn-primary btn-block" onclick="submitComplaint()">Submit report</button>
+  </div>
+</div>
+
+<footer>CivicFix — a civic-tech demo project</footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="js/auth-guard.js"></script>
+<script src="js/submit.js"></script>
+</body>
+</html>
