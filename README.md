@@ -1,2 +1,11 @@
 # PROJECT_CIVICFIX..
-Full-stack civic complaint management system where citizens report local issues (roads, sanitation, electricity, water) with photo &amp; map location, and admins track, resolve, and visualize complaints on an interactive map. Built with HTML,CSS, PHP, MySQL, JAVASCRIPT.
+# CivicFix — Smart Civic Grievance Management System
+
+A full-stack web application that lets citizens report civic issues (potholes,
+garbage, broken streetlights, water problems) with photo evidence and precise
+map-based location tagging, while admins track and resolve them through an
+interactive dashboard. The admin map highlights the currently selected complaint,
+surfaces nearby unresolved issues within a set radius, and color-codes every
+report — helping field teams plan efficient resolution routes.
+
+**Tech stack:** HTML, CSS, JavaScript (Leaflet.js for maps) · PHP + MySQL (backend/API)
